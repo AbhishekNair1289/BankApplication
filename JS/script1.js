@@ -26,19 +26,19 @@ function toggleForm(formName) {
     registerForm.style.display = "block";
   }
 }
-hamburgerMenu.addEventListener('click', () => {
-  tabs.classList.toggle('active');
-  hamburgerMenuLinks.classList.toggle('active');
+hamburgerMenu.addEventListener("click", () => {
+  tabs.classList.toggle("active");
+  hamburgerMenuLinks.classList.toggle("active");
 });
 
 // Close navigation menu when a link is clicked
-const links = document.querySelectorAll('.hamburger-menu-links a');
+const links = document.querySelectorAll(".hamburger-menu-links a");
 
-links.forEach(link => {
-    link.addEventListener('click', () => {
-        tabs.classList.remove('active');
-        hamburgerMenuLinks.classList.remove('active');
-    });
+links.forEach((link) => {
+  link.addEventListener("click", () => {
+    tabs.classList.remove("active");
+    hamburgerMenuLinks.classList.remove("active");
+  });
 });
 
 // JavaScript code to show and hide password and change icon
@@ -61,13 +61,6 @@ pwShowHide.forEach((eyeIcon) => {
   });
 });
 
-// JavaScript code to appear signup and login form
-// signUp.addEventListener("click", function () {
-//   container.classList.add("active");
-// });
-// login.addEventListener("click", function () {
-//   container.classList.remove("active");
-// });
 
 // Form validation functions
 function loginvalidation() {
