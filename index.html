@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Banking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="./css/styles1.css">
+</head>
+
+<body>
+    <header class="header1">
+        <div class="container1">
+            <nav class="navbar">
+                <a href="index copy.html" class="navbar-brand"
+                    style="color: rgb(230, 0, 255); font-family: Lacquer;">Online
+                    <span style="color: #09FFA9;">Banking</span></a>
+                <div class="tabs-lv2">
+                    <div class="tabnormal">
+                        <div class="home">Home</div>
+                    </div>
+                    <div class="tabnormal-1">
+                        <div class="products">Products</div>
+                    </div>
+                    <div class="tabnormal-2">
+                        <div class="about-us">About Us</div>
+                    </div>
+                </div>
+                <div class="tabs">
+                    <button class="login" onclick="toggleForm('login')">Login</button>
+                    <button class="register" onclick="toggleForm('register')">Register</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="forms">
+            <!-- Login Form -->
+            <div id="loginForm" class="form-container">
+                <div class="form login">
+                    <span class="title">Login</span>
+                    <form action="" name="loginForm" onsubmit="return loginValidation()">
+                        <div class="input-field">
+                            <input type="email" name="email" placeholder="Enter your email">
+                            <i class="fa-solid fa-envelope icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" name="password" class="password" placeholder="Enter your password">
+                            <i class="fa-solid fa-lock icon"></i>
+                            <i class="fa-solid fa-eye-slash showhidepw"></i>
+                        </div>
+                        <div class="checkbox-text">
+                            <div class="checkbox-content">
+                                <input type="checkbox" id="logcheck">
+                                <label for="logcheck" class="text">Remember me</label>
+                            </div>
+                            <a href="#" class="text">Forgot password</a>
+                        </div>
+                        <div class="input-field button">
+                            <input type="submit" value="Login">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Login Form end -->
+
+            <!-- Registration Form -->
+            <div id="registerForm" class="form-container">
+                <div class="form signup">
+                    <span class="title">Create an Account</span>
+                    <form name="signUpForm" onsubmit="return signUpValidation()">
+                        <div class="input-field">
+                            <input type="text" name="name" placeholder="Enter your name">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="email" name="email" placeholder="Enter your email">
+                            <i class="fa-solid fa-envelope icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" name="password" placeholder="Create your password" class="password">
+                            <i class="fa-solid fa-lock icon"></i>
+                            <i class="fa-solid fa-eye-slash showhidepw"></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" name="confirmpwd" class="password" placeholder="Confirm password">
+                            <i class="fa-solid fa-lock icon"></i>
+                            <i class="fa-solid fa-eye-slash showhidepw"></i>
+                        </div>
+                        <div class="checkbox-text">
+                            <div class="checkbox-content">
+                                <input type="checkbox" id="termCon">
+                                <label for="termCon" class="text">I accept all terms and conditions</label>
+                            </div>
+                        </div>
+                        <div class="input-field button">
+                            <input type="submit" value="Sign Up">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <!-- Registration Form end -->
+
+        </div>
+    </div>
+
+    <div class="page-content">
+        <!-- Other content goes here -->
+    </div>
+
+    <script src="JS/script1.js"></script>
+</body>
+
+</html>
