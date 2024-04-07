@@ -7,6 +7,9 @@
   (pwFields = document.querySelectorAll(".password")),
   (signUp = document.querySelector(".signup-link")),
   (login = document.querySelector(".login-link"));
+const hamburgerMenu = document.querySelector(".hamburger-menu");
+const tabs = document.querySelector(".tabs");
+const hamburgerMenuLinks = document.querySelector(".hamburger-menu-links");
 
 // Function to toggle between login and registration forms
 function toggleForm(formName) {
@@ -23,6 +26,20 @@ function toggleForm(formName) {
     registerForm.style.display = "block";
   }
 }
+hamburgerMenu.addEventListener('click', () => {
+  tabs.classList.toggle('active');
+  hamburgerMenuLinks.classList.toggle('active');
+});
+
+// Close navigation menu when a link is clicked
+const links = document.querySelectorAll('.hamburger-menu-links a');
+
+links.forEach(link => {
+    link.addEventListener('click', () => {
+        tabs.classList.remove('active');
+        hamburgerMenuLinks.classList.remove('active');
+    });
+});
 
 // JavaScript code to show and hide password and change icon
 
