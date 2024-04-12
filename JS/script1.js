@@ -24,8 +24,12 @@ function toggleForm(formName) {
     container.style.display = "block";
     loginForm.style.display = "none";
     registerForm.style.display = "block";
+    // const twoMinutes = 60, // 2 minutes in seconds
+    //   display = document.querySelector("#timer");
+    // startTimer(twoMinutes, display);
   }
 }
+
 hamburgerMenu.addEventListener("click", () => {
   tabs.classList.toggle("active");
   hamburgerMenuLinks.classList.toggle("active");
@@ -61,7 +65,6 @@ pwShowHide.forEach((eyeIcon) => {
   });
 });
 
-
 // Form validation functions
 function loginvalidation() {
   let email = document.forms.loginForm.email.value;
@@ -83,26 +86,71 @@ function loginvalidation() {
   }
 }
 
+function startTimer(duration, display) {
+  let timer = duration,
+    minutes,
+    seconds;
+  setInterval(function () {
+    minutes = parseInt(timer / 60, 10);
+    seconds = parseInt(timer % 60, 10);
+
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    display.textContent = minutes + ":" + seconds;
+
+    if (--timer < 0) {
+      timer = duration;
+      window.location.reload(); // Refresh the page when timer reaches zero
+    }
+  }, 1000);
+}
+
 function signUpValidation() {
-  let name = document.forms.signUpForm.name.value;
+  let fname = document.forms.signUpForm.fname.value;
+  let mname = document.forms.signUpForm.mname.value;
+  let lname = document.forms.signUpForm.lname.value;
+  let accno = document.forms.signUpForm.accno.value;
+  let phone = document.forms.signUpForm.phone.value;
   let email = document.forms.signUpForm.email.value;
+  let termCon = document.forms.signUpForm.termCon.value;
   let password = document.forms.signUpForm.password.value;
   let confirmpwd = document.forms.signUpForm.confirmpwd.value;
   let regEmail =
     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  let regName = /\d+/g;
+  let regName = /\w+/g;
+  let regNum = /^\d+$/;
 
-  if (name === "" || regName.test(name)) {
-    alert("Please enter your Name properly.");
-    document.forms.signUpForm.name.focus();
+  if (fname === "" || regName.test(fname)||(fname.length>=3&&fname.length<=20)) {
+    alert("Please enter your First Name properly.");
+    document.forms.signUpForm.fname.focus();
     return false;
   }
-  if (email === "" || !regEmail.test(email)) {
+  if (mname === "" || regName.test(mname)||(mname.length>=3&&mname.length<=20)) {
+    alert("Please enter your Middle Name properly.");
+    document.forms.signUpForm.mname.focus();
+    return false;
+  }
+  if (lname === "" || regName.test(lname)||(lname.length>=3&&lname.length<=20)) {
+    alert("Please enter your Last Name properly.");
+    document.forms.signUpForm.lname.focus();
+    return false;
+  }
+  if (accno === "" || regNum.test(accno)||accno.length===16) {
+    alert("Please enter your Account No properly.");
+    document.forms.signUpForm.accno.focus();
+    return false;
+  }if (phone === "" || regNum.test(phone)||phone.length===10) {
+    alert("Please enter your Phone Number properly.");
+    document.forms.signUpForm.phone.focus();
+    return false;
+  }
+  if (email === "" || !regEmail.test(email)||(email.length>=11&&email.length<=30)) {
     alert("Please enter your Email properly.");
     document.forms.signUpForm.email.focus();
     return false;
   }
-  if (password === "" || regName.test(password)) {
+  if (password === "" || regName.test(password)||(password.length>=8&&password.length<=20)) {
     alert("Please enter your password.");
     document.forms.signUpForm.password.focus();
     return false;
@@ -110,7 +158,7 @@ function signUpValidation() {
   if (
     confirmpwd === "" ||
     regName.test(confirmpwd) ||
-    confirmpwd !== password
+    confirmpwd !== password || (confirmpwd.length>=8&&confirmpwd.length<=20)
   ) {
     alert("Please confirm your password.");
     document.forms.signUpForm.confirmpwd.focus();
